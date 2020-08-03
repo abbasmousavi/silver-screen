@@ -18,6 +18,7 @@ struct Movie: Identifiable {
     var description: String
     var poster: String
     var source: String
+    var year: Int
 }
 
 extension Movie: Codable, FetchableRecord, MutablePersistableRecord {
@@ -31,7 +32,7 @@ extension Movie: Codable, FetchableRecord, MutablePersistableRecord {
 class model: ObservableObject {
     
     let dbQueue: DatabaseQueue
-    @Published var movies: [Movie] = []
+    @Published var movies: [[Movie]] = [[],[],[],[],[],[],[],[],[],[],[],[]]
     
     var pit : AnyCancellable?
     
@@ -53,8 +54,18 @@ class model: ObservableObject {
             try! Movie.fetchAll(db)
         }.sink(receiveCompletion: { com in
             print("dcdcwdv")
-        }, receiveValue: { movie in
-            self.movies = movie
+        }, receiveValue: { movies in
+            
+            var movies1: [[Movie]] = [[],[],[],[],[],[],[],[],[],[],[],[]]
+            for movie in movies {
+                
+                let index = (movie.year - 1900) / 10
+                movies1[index].append(movie)
+            }
+            
+            
+            
+            self.movies = movies1
             print("__________")
         })
         
@@ -72,7 +83,8 @@ struct ContentView: View {
     @ObservedObject var viewModel = model()
     
     let columns = [
-        GridItem(.adaptive(minimum: 320))
+        GridItem(.flexible(minimum: 0, maximum: .infinity)),
+        GridItem(.flexible(minimum: 0, maximum: .infinity))
     ]
     
     
@@ -82,11 +94,18 @@ struct ContentView: View {
             
             
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(viewModel.movies) { movie in
-                        MovieRow(movie: movie)
-                        //Text(movie.title)
+                LazyVGrid(columns: columns, spacing: 20, pinnedViews: [.sectionHeaders]) {
+                    
+                    ForEach(1 ..< 8) { index in
+                        
+                        Section(header: headerView(type: "19\(index * 10)")) {
+                            ForEach(viewModel.movies[index]) { movie in
+                                MovieRow(movie: movie)
+                                //Text(movie.title)
+                            }
+                        }
                     }
+                  
                 }
                 .padding(.horizontal)
             }.navigationBarTitle("All Movies")
@@ -97,6 +116,15 @@ struct ContentView: View {
     }
 }
 
+func headerView(type: String) -> some View{
+        return HStack {
+            Spacer()
+            Text("Section header \(type)")
+            Spacer()
+        }.padding(.all, 10).background(Color.blue)
+    }
+
+
 struct MovieRow: View {
     var movie: Movie
     
@@ -106,17 +134,34 @@ struct MovieRow: View {
             
             KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.poster)")!).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 200)
             NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
-                Text("\(movie.title)")
+                Text("\(movie.title)").frame(width: 300, height: 50)
             }
         }
     }
 }
 
-struct MovieDetail: View {
+
+
+struct PlayerOverLay: View {
+    let action: () -> ()
+    
+    var body: some View {
+        
+        Text("dff")
+    
+       
+    }
+
+}
+
+
+
+struct MoviePlayer: View {
     let movie: Movie
     
     let player: AVPlayer
     @ObservedObject  var playerObserver: PlayerItemObserver
+    @Environment(\.presentationMode) var presentationMode
     
     init(movie: Movie) {
         
@@ -124,6 +169,42 @@ struct MovieDetail: View {
         self.player = AVPlayer(url:  URL(string: "https://archive.org/download/\(movie.id!)/\(movie.source)")!)
         self.player.allowsExternalPlayback = true
         self.playerObserver =  PlayerItemObserver(player: player)
+    }
+    
+    var body: some View {
+        
+        VStack {
+            
+            VideoPlayer(player: player) {
+                
+//                Button("Close"){
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }
+                
+            }
+            
+                            
+                           
+        }.onAppear {
+            player.play()
+          }.onDisappear{
+            player.pause()
+          }//.frame(maxWidth: .infinity, maxHeight: .infinity)
+       
+        .edgesIgnoringSafeArea(.all)
+    }
+}
+    
+
+
+struct MovieDetail: View {
+    let movie: Movie
+    @State private var isPresented = false
+  
+    
+    init(movie: Movie) {
+        
+        self.movie = movie
     }
     
     
@@ -134,28 +215,50 @@ struct MovieDetail: View {
         
         
         
-        ZStack {
+        VStack {
+            KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.poster)")!).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 200)
+            Text(movie.description)
+            Text("\(movie.year)")
             
-            switch playerObserver.currentStatus {
-            case nil:
-                Text("nothing is here")
-            case .waitingToPlayAtSpecifiedRate:
-                ProgressView()
-                
-            case .playing, .paused:
-                //Text("playing")
-                VideoPlayer(player: player)
-                
-                
-            case .some(_):
-                Text("ddgdgdgdgdgdgdgdgdgdg")
+            Button("Play") {
+                self.isPresented.toggle()
             }
+            
+          
+                   // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
+        }.fullScreenCover(isPresented: $isPresented) {
+            MoviePlayer(movie: movie)
         }.navigationBarTitle(movie.title)
-        .onAppear {
-            player.play()
-        }.onDisappear{
-            player.pause()
-        }
+        
+        
+        
+        
+            
+     
+            
+          //  PresentationButton(Text("Play"),destination: MoviePlayer(movie: movie))
+           
+            
+            
+            
+//            switch playerObserver.currentStatus {
+//            case nil:
+//                Text("nothing is here")
+//            case .waitingToPlayAtSpecifiedRate:
+//                ProgressView()
+//
+//            case .playing, .paused:
+//                //Text("playing")
+//
+//
+//
+//
+//
+//            case .some(_):
+//                Text("ddgdgdgdgdgdgdgdgdgdg")
+//            }
+//        }.navigationBarTitle(movie.title)
+        
         
         //        Text("https://archive.org/download/\(movie.id!)/\(movie.source)").onReceive(playerObserver.$currentStatus) { output in
         //            switch output {
