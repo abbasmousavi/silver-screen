@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GRDB",
+        "repositoryURL": "git@github.com:groue/GRDB.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "bc993f63f5653e0041245d7c6df393bceced3eef",
+          "version": "5.0.0-beta.9"
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "1339ebea9498ef6c3fc75cc195d7163d7c7167f9",
+          "version": "5.14.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

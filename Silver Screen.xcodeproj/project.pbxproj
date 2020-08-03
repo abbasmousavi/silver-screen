@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C044C6E24D7803F0054654F /* ClassicFilms.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */; };
+		7C044C6F24D7803F0054654F /* ClassicFilms.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */; };
+		7C044C9F24D781E30054654F /* Silver_ScreenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8064B24CC8E2F00503C38 /* Silver_ScreenApp.swift */; };
+		7C044CA024D781E30054654F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8064C24CC8E2F00503C38 /* ContentView.swift */; };
+		7C044CA224D781FD0054654F /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7C044CA124D781FD0054654F /* KingfisherSwiftUI */; };
+		7C044CA424D782000054654F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 7C044CA324D782000054654F /* GRDB */; };
+		7C044CA524D782070054654F /* ClassicFilms.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */; };
+		7C044CA624D782070054654F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF8064D24CC8E3100503C38 /* Assets.xcassets */; };
 		7CF8066724CC8E3100503C38 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8066624CC8E3100503C38 /* Tests_iOS.swift */; };
 		7CF8067224CC8E3100503C38 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8067124CC8E3100503C38 /* Tests_macOS.swift */; };
 		7CF8067424CC8E3100503C38 /* Silver_ScreenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8064B24CC8E2F00503C38 /* Silver_ScreenApp.swift */; };
@@ -15,6 +23,10 @@
 		7CF8067724CC8E3100503C38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8064C24CC8E2F00503C38 /* ContentView.swift */; };
 		7CF8067824CC8E3100503C38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF8064D24CC8E3100503C38 /* Assets.xcassets */; };
 		7CF8067924CC8E3100503C38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF8064D24CC8E3100503C38 /* Assets.xcassets */; };
+		7CF8068A24CC8FE000503C38 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF8068924CC8FE000503C38 /* KingfisherSwiftUI */; };
+		7CF8068D24CC914A00503C38 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF8068C24CC914A00503C38 /* GRDB */; };
+		7CF8069524CCDCB300503C38 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF8069424CCDCB300503C38 /* KingfisherSwiftUI */; };
+		7CF8069724CCDCBD00503C38 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 7CF8069624CCDCBD00503C38 /* GRDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClassicFilms.sqlite; sourceTree = "<group>"; };
+		7C044C7424D781230054654F /* Silver Screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Silver Screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C044C7F24D781260054654F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF8064B24CC8E2F00503C38 /* Silver_ScreenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Silver_ScreenApp.swift; sourceTree = "<group>"; };
 		7CF8064C24CC8E2F00503C38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7CF8064D24CC8E3100503C38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,10 +67,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7C044C7124D781230054654F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C044CA224D781FD0054654F /* KingfisherSwiftUI in Frameworks */,
+				7C044CA424D782000054654F /* GRDB in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CF8064F24CC8E3100503C38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF8068A24CC8FE000503C38 /* KingfisherSwiftUI in Frameworks */,
+				7CF8068D24CC914A00503C38 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF8069524CCDCB300503C38 /* KingfisherSwiftUI in Frameworks */,
+				7CF8069724CCDCBD00503C38 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,21 +111,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C044C7524D781230054654F /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				7C044C7F24D781260054654F /* Info.plist */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
 		7CF8064524CC8E2E00503C38 = {
 			isa = PBXGroup;
 			children = (
 				7CF8064A24CC8E2F00503C38 /* Shared */,
 				7CF8065424CC8E3100503C38 /* iOS */,
 				7CF8065B24CC8E3100503C38 /* macOS */,
+				7C044C7524D781230054654F /* tvOS */,
 				7CF8066524CC8E3100503C38 /* Tests iOS */,
 				7CF8067024CC8E3100503C38 /* Tests macOS */,
 				7CF8065324CC8E3100503C38 /* Products */,
+				7CF8069324CCDCB300503C38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		7CF8064A24CC8E2F00503C38 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */,
 				7CF8064B24CC8E2F00503C38 /* Silver_ScreenApp.swift */,
 				7CF8064C24CC8E2F00503C38 /* ContentView.swift */,
 				7CF8064D24CC8E3100503C38 /* Assets.xcassets */,
@@ -112,6 +151,7 @@
 				7CF8065A24CC8E3100503C38 /* Silver Screen.app */,
 				7CF8066224CC8E3100503C38 /* Tests iOS.xctest */,
 				7CF8066D24CC8E3100503C38 /* Tests macOS.xctest */,
+				7C044C7424D781230054654F /* Silver Screen.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,9 +191,37 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		7CF8069324CCDCB300503C38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7C044C7324D781230054654F /* Silver Screen (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C044C9624D781270054654F /* Build configuration list for PBXNativeTarget "Silver Screen (tvOS)" */;
+			buildPhases = (
+				7C044C7024D781230054654F /* Sources */,
+				7C044C7124D781230054654F /* Frameworks */,
+				7C044C7224D781230054654F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Silver Screen (tvOS)";
+			packageProductDependencies = (
+				7C044CA124D781FD0054654F /* KingfisherSwiftUI */,
+				7C044CA324D782000054654F /* GRDB */,
+			);
+			productName = "silver-screen";
+			productReference = 7C044C7424D781230054654F /* Silver Screen.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7CF8065124CC8E3100503C38 /* Silver Screen (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CF8067C24CC8E3100503C38 /* Build configuration list for PBXNativeTarget "Silver Screen (iOS)" */;
@@ -167,6 +235,10 @@
 			dependencies = (
 			);
 			name = "Silver Screen (iOS)";
+			packageProductDependencies = (
+				7CF8068924CC8FE000503C38 /* KingfisherSwiftUI */,
+				7CF8068C24CC914A00503C38 /* GRDB */,
+			);
 			productName = "Silver Screen (iOS)";
 			productReference = 7CF8065224CC8E3100503C38 /* Silver Screen.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +256,10 @@
 			dependencies = (
 			);
 			name = "Silver Screen (macOS)";
+			packageProductDependencies = (
+				7CF8069424CCDCB300503C38 /* KingfisherSwiftUI */,
+				7CF8069624CCDCBD00503C38 /* GRDB */,
+			);
 			productName = "Silver Screen (macOS)";
 			productReference = 7CF8065A24CC8E3100503C38 /* Silver Screen.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +309,9 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					7C044C7324D781230054654F = {
+						CreatedOnToolsVersion = 12.0;
+					};
 					7CF8065124CC8E3100503C38 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -258,12 +337,17 @@
 				Base,
 			);
 			mainGroup = 7CF8064524CC8E2E00503C38;
+			packageReferences = (
+				7CF8068824CC8FE000503C38 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+			);
 			productRefGroup = 7CF8065324CC8E3100503C38 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				7CF8065124CC8E3100503C38 /* Silver Screen (iOS) */,
 				7CF8065924CC8E3100503C38 /* Silver Screen (macOS) */,
+				7C044C7324D781230054654F /* Silver Screen (tvOS) */,
 				7CF8066124CC8E3100503C38 /* Tests iOS */,
 				7CF8066C24CC8E3100503C38 /* Tests macOS */,
 			);
@@ -271,10 +355,20 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7C044C7224D781230054654F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C044CA524D782070054654F /* ClassicFilms.sqlite in Resources */,
+				7C044CA624D782070054654F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CF8065024CC8E3100503C38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C044C6E24D7803F0054654F /* ClassicFilms.sqlite in Resources */,
 				7CF8067824CC8E3100503C38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C044C6F24D7803F0054654F /* ClassicFilms.sqlite in Resources */,
 				7CF8067924CC8E3100503C38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +399,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7C044C7024D781230054654F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C044C9F24D781E30054654F /* Silver_ScreenApp.swift in Sources */,
+				7C044CA024D781E30054654F /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CF8064E24CC8E3100503C38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,6 +458,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7C044C9724D781270054654F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
+				PRODUCT_NAME = "Silver Screen";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Debug;
+		};
+		7C044C9824D781270054654F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
+				PRODUCT_NAME = "Silver Screen";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		7CF8067A24CC8E3100503C38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -478,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.Silver-Screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -499,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.Silver-Screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -640,6 +787,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7C044C9624D781270054654F /* Build configuration list for PBXNativeTarget "Silver Screen (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C044C9724D781270054654F /* Debug */,
+				7C044C9824D781270054654F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7CF8064924CC8E2E00503C38 /* Build configuration list for PBXProject "Silver Screen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -686,6 +842,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7CF8068824CC8FE000503C38 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.14.1;
+			};
+		};
+		7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:groue/GRDB.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "5.0.0-beta.9";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C044CA124D781FD0054654F /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF8068824CC8FE000503C38 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		7C044CA324D782000054654F /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		7CF8068924CC8FE000503C38 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF8068824CC8FE000503C38 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		7CF8068C24CC914A00503C38 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		7CF8069424CCDCB300503C38 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF8068824CC8FE000503C38 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		7CF8069624CCDCBD00503C38 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7CF8064624CC8E2E00503C38 /* Project object */;
 }
