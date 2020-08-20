@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "Kingfisher",
-        "repositoryURL": "git@github.com:onevcat/Kingfisher.git",
+        "package": "URLImage",
+        "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {
           "branch": null,
-          "revision": "1339ebea9498ef6c3fc75cc195d7163d7c7167f9",
-          "version": "5.14.1"
+          "revision": "22eca5ee4f317e0283da75426849ee23f0516022",
+          "version": "0.9.19"
         }
       }
     ]

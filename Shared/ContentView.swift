@@ -9,25 +9,9 @@ import SwiftUI
 import GRDB
 import Combine
 import AVKit
-import KingfisherSwiftUI
+import URLImage
 
-struct Movie: Identifiable {
-    
-    var id: String?
-    var title: String
-    var description: String
-    var poster: String
-    var source: String
-    var year: Int
-}
 
-extension Movie: Codable, FetchableRecord, MutablePersistableRecord {
-    // Define database columns from CodingKeys
-    fileprivate enum Columns {
-        static let name = Column(CodingKeys.title)
-        
-    }
-}
 
 class model: ObservableObject {
     
@@ -108,7 +92,7 @@ struct ContentView: View {
                   
                 }
                 .padding(.horizontal)
-            }.navigationBarTitle("All Movies")
+            }//.navigationBarTitle("All Movies")
             
             
             
@@ -132,7 +116,14 @@ struct MovieRow: View {
         
         VStack{
             
-            KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.poster)")!).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 200)
+            URLImage(URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!, incremental: true){ proxy in
+                proxy.image
+                    .resizable()                     // Make image resizable
+                    .aspectRatio(contentMode: .fit) // Fill the frame
+                    .clipped()                       // Clip overlaping parts
+                }
+                .frame(width: 150.0, height: 250.0)
+                
             NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
                 Text("\(movie.title)").frame(width: 300, height: 50)
             }
@@ -166,7 +157,7 @@ struct MoviePlayer: View {
     init(movie: Movie) {
         
         self.movie = movie
-        self.player = AVPlayer(url:  URL(string: "https://archive.org/download/\(movie.id!)/\(movie.source)")!)
+        self.player = AVPlayer(url:  URL(string: "https://archive.org/download/\(movie.archive_id)/\(movie.source)")!)
         self.player.allowsExternalPlayback = true
         self.playerObserver =  PlayerItemObserver(player: player)
     }
@@ -212,13 +203,25 @@ struct MovieDetail: View {
     var body: some View {
         
         
-        
+//        ZStack {
+//
+//            KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.backdropURL)")!).resizable().aspectRatio(contentMode: .fill).edgesIgnoringSafeArea(.all).blur(radius: 10)
         
         
         VStack {
-            KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.poster)")!).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 200)
-            Text(movie.description)
-            Text("\(movie.year)")
+            URLImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")!, incremental: true){ proxy in
+                proxy.image
+                    .resizable()                     // Make image resizable
+                    .aspectRatio(contentMode: .fit) // Fill the frame
+                    .clipped()                       // Clip overlaping parts
+                }
+                .frame(width: 250.0, height: 350.0)
+            
+            
+            
+         
+            Text(movie.description).padding()
+            Text("\(movie.year)").padding()
             
             Button("Play") {
                 self.isPresented.toggle()
@@ -226,12 +229,13 @@ struct MovieDetail: View {
             
           
                    // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
-        }.fullScreenCover(isPresented: $isPresented) {
+        }
+        .fullScreenCover(isPresented: $isPresented) {
             MoviePlayer(movie: movie)
         }.navigationBarTitle(movie.title)
         
         
-        
+//        }
         
             
      
