@@ -23,8 +23,10 @@ class model: ObservableObject {
     
     
     init () {
+        var config = Configuration()
+        config.readonly = true
         let path = Bundle.main.path(forResource: "ClassicFilms", ofType: "sqlite")
-        dbQueue = try! DatabaseQueue(path: path!)
+        dbQueue = try! DatabaseQueue(path: path!, configuration: config)
         
         
         runf()
@@ -116,14 +118,23 @@ struct MovieRow: View {
         
         VStack{
             
-            URLImage(URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!, incremental: true){ proxy in
-                proxy.image
-                    .resizable()                     // Make image resizable
-                    .aspectRatio(contentMode: .fit) // Fill the frame
-                    .clipped()                       // Clip overlaping parts
-                }
+            
+            
+            URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
+                     failure: { error, _ in
+                        Text(error.localizedDescription)
+                     },
+                     content: {
+                        $0
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipped()
+                     })
                 .frame(width: 150.0, height: 250.0)
-                
+            
+            
+            
+
             NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
                 Text("\(movie.title)").frame(width: 300, height: 50)
             }
@@ -209,15 +220,19 @@ struct MovieDetail: View {
         
         
         VStack {
-            URLImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")!, incremental: true){ proxy in
-                proxy.image
-                    .resizable()                     // Make image resizable
-                    .aspectRatio(contentMode: .fit) // Fill the frame
-                    .clipped()                       // Clip overlaping parts
-                }
+            
+            
+            URLImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")!,
+                     failure: { error, _ in
+                        Text(error.localizedDescription)
+                     },
+                     content: {
+                        $0
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipped()
+                     })
                 .frame(width: 250.0, height: 350.0)
-            
-            
             
          
             Text(movie.description).padding()
@@ -230,9 +245,9 @@ struct MovieDetail: View {
           
                    // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
         }
-        .fullScreenCover(isPresented: $isPresented) {
+        .sheet(isPresented: $isPresented) {
             MoviePlayer(movie: movie)
-        }.navigationBarTitle(movie.title)
+        }//.navigationBarTitle(movie.title)
         
         
 //        }
