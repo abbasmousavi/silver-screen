@@ -6,8 +6,8 @@
         "repositoryURL": "git@github.com:groue/GRDB.swift.git",
         "state": {
           "branch": null,
-          "revision": "bc993f63f5653e0041245d7c6df393bceced3eef",
-          "version": "5.0.0-beta.9"
+          "revision": "948e91126a70ae703e5fe600ca3183161009bc4b",
+          "version": "5.0.2"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {
           "branch": null,
-          "revision": "22eca5ee4f317e0283da75426849ee23f0516022",
-          "version": "0.9.19"
+          "revision": "948d41a38c90a42aa6046ace77e81f1066d8bf9a",
+          "version": "2.0.0-alpha.1"
         }
       }
     ]

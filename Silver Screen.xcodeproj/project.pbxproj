@@ -552,7 +552,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.silver-screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
@@ -573,7 +573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.silver-screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
@@ -729,7 +729,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.silver-screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -750,7 +750,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.silver-screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.silver-screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -774,7 +774,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.Silver-Screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.Silver-Screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -796,7 +796,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "team.newts.Silver-Screen";
+				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.Silver-Screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -962,7 +962,7 @@
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.19;
+				minimumVersion = "2.0.0-alpha.1";
 			};
 		};
 		7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
@@ -970,7 +970,7 @@
 			repositoryURL = "git@github.com:groue/GRDB.swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = "5.0.0-beta.9";
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
