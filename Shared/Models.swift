@@ -14,10 +14,23 @@ struct Movie: Identifiable {
     var description: String
     var posterURL: String
     var backdropURL: String
+    var runtime: Int
     var source: String
     var year: Int
     var tmdb: Int
     var archive_id: String
+    var license: String
+    var rating: Float
+    
+    
+    var licenseString: String  {
+        
+        if license.contains("publicdomain") {
+            return "Public Domain"
+        } else {
+            return "Creative Commons"
+        }
+    }
 }
 
 extension Movie: Codable, FetchableRecord, MutablePersistableRecord {
