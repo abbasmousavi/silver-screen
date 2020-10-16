@@ -10,6 +10,7 @@ import GRDB
 import Combine
 import AVKit
 import URLImage
+import SDWebImageSwiftUI
 
 
 
@@ -49,9 +50,11 @@ class model: ObservableObject {
                 movies1[index].append(movie)
             }
             
+            DispatchQueue.main.async {
+                self.movies = movies1
+            }
             
             
-            self.movies = movies1
             print("__________")
         })
         
@@ -70,75 +73,148 @@ struct ContentView: View {
     
     let columns = [
         GridItem(.flexible(minimum: 0, maximum: .infinity)),
-        GridItem(.flexible(minimum: 0, maximum: .infinity))
+        
+    ]
+    
+    let rows = [
+        GridItem(.flexible(minimum: 0, maximum: .infinity)),
     ]
     
     
     var body: some View {
+        
+        TabView {
+            
+        
         NavigationView{
-            
-            
-            
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20, pinnedViews: [.sectionHeaders]) {
+        
+        
+        ScrollView {
+            VStack {
+                
+                ForEach(1 ..< 8) { index in
                     
-                    ForEach(1 ..< 8) { index in
-                        
-                        Section(header: headerView(type: "19\(index * 10)")) {
+                    
+                 
+                    Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
+                        .padding(.leading, 100).padding(.top, 70)//.focusable(false)
+                    
+                    
+                    //  .frame(width: 500, height: 200, alignment: .leading)
+                    
+                    //Section(header: headerView(type: "19\(index * 10)")) {
+                    
+                    ScrollView(.horizontal) {
+
+                        HStack {
+                            Spacer().frame(width: 100)
                             ForEach(viewModel.movies[index]) { movie in
-                                MovieRow(movie: movie)
-                                //Text(movie.title)
+                                
+                                MovieRow(movie: movie).padding(.top, 20).focusable(false)
+                                
                             }
-                        }
-                    }
-                  
-                }
-                .padding(.horizontal)
-            }//.navigationBarTitle("All Movies")
+                            Spacer().frame(width: 100)
+                        }.focusable(false)
+                        // }
+                        
+                        //Text(movie.title)
+                        
+                        
+                    }.focusable(false)//.padding(.horizontal, 50)
+                }.focusable(false)
+                
+            }
+            // .padding(.horizontal)
+           //}//.navigationBarTitle("All Movies")
             
             
             
+        }.edgesIgnoringSafeArea(.horizontal).focusable(false)
+        
+        }.tabItem {
+        Text("All Movies")
         }
+            
+            Text("pit").tabItem {
+                Text("Horor")
+                }
+            Text("comedy").tabItem {
+                Text("Comedy")
+                }
+           
+                VStack {
+                    HStack{
+                        Image("internet-archive")
+                            .renderingMode(.template)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200)
+                            .foregroundColor(.accentColor)
+                            
+                        Text("This product uses the Internet Archive (www.archive.org) as a streaming source for all movies. It only shows movies which the Internet Archive labels as in the public domain or which have an appropriate creativecommons.org license attached. Please contact the Internet Archive if there is any issue regarding the movies like content, quality, license and more. This product uses the Archive.org API but is not endorsed or certified by Archive.org.")
+                    }.padding(.bottom)
+                    
+                    HStack{
+                        Image("tmdb")
+                            .renderingMode(.template)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200)
+                            .foregroundColor(.accentColor)
+                            
+                        Text("This product uses the Movie Database TMDb (www.themoviedb.org) as a source for any additional meta data about the movies found on the Internet Archive. This includes movie posters, images, title, year, description and others. Please contact the Movie Database if there is any issue regarding the movie meta data. This product uses the TMDb API but is not endorsed or certified by TMDb.")
+                    }
+                }.padding(.horizontal, 200).tabItem {Text("About")}
+
+        }.edgesIgnoringSafeArea(.all)
+    }
+    }
+
+extension View {
+    func focusable(_: Bool) -> some View {
+        return self
     }
 }
 
-func headerView(type: String) -> some View{
-        return HStack {
-            Spacer()
-            Text("Section header \(type)")
-            Spacer()
-        }.padding(.all, 10).background(Color.blue)
-    }
+
+//func headerView(type: String) -> some View{
+//    return HStack {
+//        Spacer()
+//        Text("Section header \(type)")
+//        Spacer()
+//    }.padding(.all, 10).background(Color.blue)
+//}
 
 
 struct MovieRow: View {
     var movie: Movie
+    @State var focused: Bool = false
     
     var body: some View {
         
         VStack{
             
-            
-            
+            NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
             URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
+                     
                      failure: { error, _ in
-                        Text(error.localizedDescription)
+                        Image("poster-placeholder").resizable()
                      },
                      content: {
                         $0
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipped()
+                            //.renderingMode(.original)
+                            .aspectRatio(contentMode: .fill)
+                        
+                        //.clipped()
+                        //
                      })
-                .frame(width: 150.0, height: 250.0)
+                .frame(width: 200.0, height: 300.0)
             
-            
-            
-
-            NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
-                Text("\(movie.title)").frame(width: 300, height: 50)
-            }
+            }.buttonStyle(PlainButtonStyle())
+            Text("\(movie.title)").frame(width: 200, height: 60)
         }
+        
     }
 }
 
@@ -150,10 +226,10 @@ struct PlayerOverLay: View {
     var body: some View {
         
         Text("dff")
-    
-       
+        
+        
     }
-
+    
 }
 
 
@@ -179,129 +255,27 @@ struct MoviePlayer: View {
             
             VideoPlayer(player: player) {
                 
-//                Button("Close"){
-//                    self.presentationMode.wrappedValue.dismiss()
-//                }
+                //                Button("Close"){
+                //                    self.presentationMode.wrappedValue.dismiss()
+                //                }
                 
             }
             
-                            
-                           
+            
+            
         }.onAppear {
             player.play()
-          }.onDisappear{
+        }.onDisappear{
             player.pause()
-          }//.frame(maxWidth: .infinity, maxHeight: .infinity)
-       
+        }//.frame(maxWidth: .infinity, maxHeight: .infinity)
+        
         .edgesIgnoringSafeArea(.all)
     }
 }
-    
 
 
-struct MovieDetail: View {
-    let movie: Movie
-    @State private var isPresented = false
-  
-    
-    init(movie: Movie) {
-        
-        self.movie = movie
-    }
-    
-    
-    
-    var body: some View {
-        
-        
-//        ZStack {
-//
-//            KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.backdropURL)")!).resizable().aspectRatio(contentMode: .fill).edgesIgnoringSafeArea(.all).blur(radius: 10)
-        
-        
-        VStack {
-            
-            
-            URLImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")!,
-                     failure: { error, _ in
-                        Text(error.localizedDescription)
-                     },
-                     content: {
-                        $0
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipped()
-                     })
-                .frame(width: 250.0, height: 350.0)
-            
-         
-            Text(movie.description).padding()
-            Text("\(movie.year)").padding()
-            
-            Button("Play") {
-                self.isPresented.toggle()
-            }
-            
-          
-                   // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
-        }
-        .sheet(isPresented: $isPresented) {
-            MoviePlayer(movie: movie)
-        }//.navigationBarTitle(movie.title)
-        
-        
-//        }
-        
-            
-     
-            
-          //  PresentationButton(Text("Play"),destination: MoviePlayer(movie: movie))
-           
-            
-            
-            
-//            switch playerObserver.currentStatus {
-//            case nil:
-//                Text("nothing is here")
-//            case .waitingToPlayAtSpecifiedRate:
-//                ProgressView()
-//
-//            case .playing, .paused:
-//                //Text("playing")
-//
-//
-//
-//
-//
-//            case .some(_):
-//                Text("ddgdgdgdgdgdgdgdgdgdg")
-//            }
-//        }.navigationBarTitle(movie.title)
-        
-        
-        //        Text("https://archive.org/download/\(movie.id!)/\(movie.source)").onReceive(playerObserver.$currentStatus) { output in
-        //            switch output {
-        //                            case nil:
-        //                                Text("nothing is here")
-        //                            case .waitingToPlayAtSpecifiedRate:
-        //                                Text("waiting")
-        //                            case .paused:
-        //                                Text("paused")
-        //                            case .playing:
-        //                                Text("playing")
-        //            case .some(_):
-        //                Text("I dont know")
-        //            }
-        //       }
-        
-    }
-}
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+
 
 
 class PlayerItemObserver: ObservableObject {
@@ -328,5 +302,45 @@ struct LazyView<Content: View>: View {
     }
     var body: Content {
         build()
+    }
+}
+
+
+final class Loader: ObservableObject {
+    
+    var task: URLSessionDataTask!
+    @Published var data: Data? = nil
+    
+    init(_ url: URL) {
+        task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
+            DispatchQueue.main.async {
+                self.data = data
+            }
+        })
+        task.resume()
+    }
+    deinit {
+        task.cancel()
+    }
+}
+
+let placeholder = UIImage(named: "poster-placeholder")!
+
+struct AsyncImage: View {
+    init(url: URL) {
+        self.imageLoader = Loader(url)
+    }
+    
+    @ObservedObject private var imageLoader: Loader
+    var image: UIImage? {
+        imageLoader.data.flatMap(UIImage.init)
+    }
+    
+    
+    var body: some View {
+        Image(uiImage: image ?? placeholder)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+        // .clipped()
     }
 }
