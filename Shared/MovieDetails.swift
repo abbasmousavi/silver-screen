@@ -38,7 +38,7 @@ struct MovieDetail: View {
                      },
                      content: {
                         $0.resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .cornerRadius(20)
                      })
                 .frame(width: 400.0, height: 600.0)
@@ -91,7 +91,9 @@ struct MovieDetail: View {
             }}
             .sheet(isPresented: $isPresented) {
                 MoviePlayer(movie: movie)
-            }.padding(.horizontal, 100).frame(height: 602)//.navigationBarTitle(movie.title)
+            }.padding(.horizontal, 100).frame(height: 602)
+            
+            .focusScope(namespace)//.navigationBarTitle(movie.title)
     }
 }
         
