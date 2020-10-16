@@ -142,29 +142,7 @@ struct ContentView: View {
                 Text("Comedy")
                 }
            
-                VStack {
-                    HStack{
-                        Image("internet-archive")
-                            .renderingMode(.template)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 200)
-                            .foregroundColor(.accentColor)
-                            
-                        Text("This product uses the Internet Archive (www.archive.org) as a streaming source for all movies. It only shows movies which the Internet Archive labels as in the public domain or which have an appropriate creativecommons.org license attached. Please contact the Internet Archive if there is any issue regarding the movies like content, quality, license and more. This product uses the Archive.org API but is not endorsed or certified by Archive.org.")
-                    }.padding(.bottom)
-                    
-                    HStack{
-                        Image("tmdb")
-                            .renderingMode(.template)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 200)
-                            .foregroundColor(.accentColor)
-                            
-                        Text("This product uses the Movie Database TMDb (www.themoviedb.org) as a source for any additional meta data about the movies found on the Internet Archive. This includes movie posters, images, title, year, description and others. Please contact the Movie Database if there is any issue regarding the movie meta data. This product uses the TMDb API but is not endorsed or certified by TMDb.")
-                    }
-                }.padding(.horizontal, 200).tabItem {Text("About")}
+                AboutPage().padding(.horizontal, 200).tabItem {Text("About")}
 
         }.edgesIgnoringSafeArea(.all)
     }
@@ -234,65 +212,7 @@ struct PlayerOverLay: View {
 
 
 
-struct MoviePlayer: View {
-    let movie: Movie
-    
-    let player: AVPlayer
-    @ObservedObject  var playerObserver: PlayerItemObserver
-    @Environment(\.presentationMode) var presentationMode
-    
-    init(movie: Movie) {
-        
-        self.movie = movie
-        self.player = AVPlayer(url:  URL(string: "https://archive.org/download/\(movie.archive_id)/\(movie.source)")!)
-        self.player.allowsExternalPlayback = true
-        self.playerObserver =  PlayerItemObserver(player: player)
-    }
-    
-    var body: some View {
-        
-        VStack {
-            
-            VideoPlayer(player: player) {
-                
-                //                Button("Close"){
-                //                    self.presentationMode.wrappedValue.dismiss()
-                //                }
-                
-            }
-            
-            
-            
-        }.onAppear {
-            player.play()
-        }.onDisappear{
-            player.pause()
-        }//.frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        .edgesIgnoringSafeArea(.all)
-    }
-}
 
-
-
-
-
-
-class PlayerItemObserver: ObservableObject {
-    
-    @Published var currentStatus: AVPlayer.TimeControlStatus?
-    private var itemObservation: AnyCancellable?
-    
-    init(player: AVPlayer) {
-        
-        itemObservation = player.publisher(for: \.timeControlStatus).sink { newStatus in
-            print(newStatus.rawValue)
-            self.currentStatus = newStatus
-        }
-        
-    }
-    
-}
 
 
 struct LazyView<Content: View>: View {
@@ -306,41 +226,41 @@ struct LazyView<Content: View>: View {
 }
 
 
-final class Loader: ObservableObject {
-    
-    var task: URLSessionDataTask!
-    @Published var data: Data? = nil
-    
-    init(_ url: URL) {
-        task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
-            DispatchQueue.main.async {
-                self.data = data
-            }
-        })
-        task.resume()
-    }
-    deinit {
-        task.cancel()
-    }
-}
+//final class Loader: ObservableObject {
+//
+//    var task: URLSessionDataTask!
+//    @Published var data: Data? = nil
+//
+//    init(_ url: URL) {
+//        task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
+//            DispatchQueue.main.async {
+//                self.data = data
+//            }
+//        })
+//        task.resume()
+//    }
+//    deinit {
+//        task.cancel()
+//    }
+//}
 
-let placeholder = UIImage(named: "poster-placeholder")!
-
-struct AsyncImage: View {
-    init(url: URL) {
-        self.imageLoader = Loader(url)
-    }
-    
-    @ObservedObject private var imageLoader: Loader
-    var image: UIImage? {
-        imageLoader.data.flatMap(UIImage.init)
-    }
-    
-    
-    var body: some View {
-        Image(uiImage: image ?? placeholder)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-        // .clipped()
-    }
-}
+//let placeholder = UIImage(named: "poster-placeholder")!
+//
+//struct AsyncImage: View {
+//    init(url: URL) {
+//        self.imageLoader = Loader(url)
+//    }
+//
+//    @ObservedObject private var imageLoader: Loader
+//    var image: UIImage? {
+//        imageLoader.data.flatMap(UIImage.init)
+//    }
+//
+//
+//    var body: some View {
+//        Image(uiImage: image ?? placeholder)
+//            .resizable()
+//            .aspectRatio(contentMode: .fill)
+//        // .clipped()
+//    }
+//}
