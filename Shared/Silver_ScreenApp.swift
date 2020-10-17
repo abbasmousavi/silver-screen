@@ -6,9 +6,20 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 @main
 struct Silver_ScreenApp: App {
+    
+    init() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback)
+        } catch  {
+            
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
