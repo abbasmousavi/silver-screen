@@ -12,7 +12,7 @@ import URLImage
 struct MovieDetail: View {
     let movie: Movie
     @State private var isPresented = false
-    @Namespace private var namespace
+    //@Namespace private var namespace
     
     
     init(movie: Movie) {
@@ -44,19 +44,16 @@ struct MovieDetail: View {
                 .frame(width: 400.0, height: 600.0)
             
             VStack {
-                
-                
-                
-                
-                
+
+                HStack{
                 Text(movie.description)
-                    .padding(.bottom)
-                
+                    .padding([.bottom])
+                }
                 
                 HStack{
                     Text("Year: ").bold()
                     Spacer()
-                    Text("\(movie.year)")
+                    Text(String(format: "%d", movie.year))
                 }//.padding(.bottom, 1)
                 
                 HStack{
@@ -68,11 +65,11 @@ struct MovieDetail: View {
                 HStack{
                     Text("Rating: ").bold()
                     Spacer()
-                    Text("\(movie.rating)")
+                    Text(String(format: "%.1f", movie.rating))
                 }//.padding(.bottom, 1)
                 
                 HStack{
-                    Text("license: ").bold()
+                    Text("License: ").bold()
                     Spacer()
                     Text(movie.licenseString)
                 }//.padding(.bottom, 1)
@@ -82,9 +79,9 @@ struct MovieDetail: View {
                 HStack{
                 Button("Play") {
                     self.isPresented.toggle()
-                }.prefersDefaultFocus(true, in: namespace)
-                    Spacer()
-                }.padding(.bottom)
+                }
+                    
+                }
                 
                 
                 // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
@@ -93,7 +90,7 @@ struct MovieDetail: View {
                 MoviePlayer(movie: movie)
             }.padding(.horizontal, 100).frame(height: 602)
             
-            .focusScope(namespace)//.navigationBarTitle(movie.title)
+            //.focusScope(namespace)//.navigationBarTitle(movie.title)
     }
 }
         

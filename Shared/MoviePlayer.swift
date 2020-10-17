@@ -44,16 +44,11 @@ struct MoviePlayer: View {
             player.play()
         }.onDisappear{
             player.pause()
-        }//.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
         
         .edgesIgnoringSafeArea(.all)
     }
 }
-
-
-
-
-
 
 class PlayerItemObserver: ObservableObject {
     
@@ -63,10 +58,8 @@ class PlayerItemObserver: ObservableObject {
     init(player: AVPlayer) {
         
         itemObservation = player.publisher(for: \.timeControlStatus).sink { newStatus in
-            print(newStatus.rawValue)
+            print(newStatus)
             self.currentStatus = newStatus
         }
-        
     }
-    
 }

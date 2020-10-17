@@ -24,7 +24,7 @@ struct MovieList: View {
         NavigationView{
             
             
-            ScrollView {
+            ScrollView(.vertical) {
                 VStack {
                     
                     ForEach(1 ..< 8) { index in
@@ -45,7 +45,7 @@ struct MovieList: View {
                                 Spacer().frame(width: 100)
                                 ForEach(viewModel.movies[index]) { movie in
                                     
-                                    MovieRow(movie: movie).padding(.top, 20).focusable(false)
+                                   MovieItem(movie: movie).padding(.top, 20).focusable(false)
                                     
                                 }
                                 Spacer().frame(width: 100)

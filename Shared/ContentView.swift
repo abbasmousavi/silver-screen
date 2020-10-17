@@ -11,9 +11,12 @@ import Combine
 import AVKit
 import URLImage
 
+
+
 struct ContentView: View {
-    
+    @Namespace var namespace
     @ObservedObject var viewModel = model()
+
     
     let columns = [
         GridItem(.flexible(minimum: 0, maximum: .infinity)),
@@ -29,7 +32,7 @@ struct ContentView: View {
         
         TabView {
             
-            MovieList(movieType: nil).tabItem {
+            MovieList(movieType: nil).prefersDefaultFocus(true, in: namespace).tabItem {
                 Text("All Movies")
             }
             
@@ -48,7 +51,7 @@ struct ContentView: View {
             
             AboutPage().padding(.horizontal, 200).tabItem {Text("About")}
             
-        }.edgesIgnoringSafeArea(.all)
+        }.edgesIgnoringSafeArea(.all).focusScope(namespace)
     }
 }
 
