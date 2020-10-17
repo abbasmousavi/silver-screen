@@ -10,62 +10,6 @@ import GRDB
 import Combine
 import AVKit
 import URLImage
-import SDWebImageSwiftUI
-
-
-
-class model: ObservableObject {
-    
-    let dbQueue: DatabaseQueue
-    @Published var movies: [[Movie]] = [[],[],[],[],[],[],[],[],[],[],[],[]]
-    
-    var pit : AnyCancellable?
-    
-    
-    
-    init () {
-        var config = Configuration()
-        config.readonly = true
-        let path = Bundle.main.path(forResource: "ClassicFilms", ofType: "sqlite")
-        dbQueue = try! DatabaseQueue(path: path!, configuration: config)
-        
-        
-        runf()
-        
-        //self.movies = [Movie(id: "kjhkj", title: "jhjhg")]
-    }
-    
-    func runf () {
-        
-        pit = dbQueue.readPublisher { db in
-            try! Movie.fetchAll(db)
-        }.sink(receiveCompletion: { com in
-            print("dcdcwdv")
-        }, receiveValue: { movies in
-            
-            var movies1: [[Movie]] = [[],[],[],[],[],[],[],[],[],[],[],[]]
-            for movie in movies {
-                
-                let index = (movie.year - 1900) / 10
-                movies1[index].append(movie)
-            }
-            
-            DispatchQueue.main.async {
-                self.movies = movies1
-            }
-            
-            
-            print("__________")
-        })
-        
-    }
-    
-    //private var playersCancellable: AnyCancellable?
-    
-    
-}
-
-
 
 struct ContentView: View {
     
@@ -85,131 +29,34 @@ struct ContentView: View {
         
         TabView {
             
-        
-        NavigationView{
-        
-        
-        ScrollView {
-            VStack {
-                
-                ForEach(1 ..< 8) { index in
-                    
-                    
-                 
-                    Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
-                        .padding(.leading, 100).padding(.top, 70)//.focusable(false)
-                    
-                    
-                    //  .frame(width: 500, height: 200, alignment: .leading)
-                    
-                    //Section(header: headerView(type: "19\(index * 10)")) {
-                    
-                    ScrollView(.horizontal) {
-
-                        HStack {
-                            Spacer().frame(width: 100)
-                            ForEach(viewModel.movies[index]) { movie in
-                                
-                                MovieRow(movie: movie).padding(.top, 20).focusable(false)
-                                
-                            }
-                            Spacer().frame(width: 100)
-                        }.focusable(false)
-                        // }
-                        
-                        //Text(movie.title)
-                        
-                        
-                    }.focusable(false)//.padding(.horizontal, 50)
-                }.focusable(false)
-                
+            MovieList(movieType: nil).tabItem {
+                Text("All Movies")
             }
-            // .padding(.horizontal)
-           //}//.navigationBarTitle("All Movies")
             
-            
-            
-        }.edgesIgnoringSafeArea(.horizontal).focusable(false)
-        
-        }.tabItem {
-        Text("All Movies")
-        }
-            
-            Text("pit").tabItem {
-                Text("Horor")
-                }
-            Text("comedy").tabItem {
+            MovieList(movieType: .comedy).tabItem {
                 Text("Comedy")
-                }
-           
-                AboutPage().padding(.horizontal, 200).tabItem {Text("About")}
-
+            }
+            
+            MovieList(movieType: .noir).tabItem {
+                Text("Noir")
+            }
+            
+            MovieList(movieType: .horor).tabItem {
+                Text("Horor, Sci-fi")
+            }
+            
+            
+            AboutPage().padding(.horizontal, 200).tabItem {Text("About")}
+            
         }.edgesIgnoringSafeArea(.all)
     }
-    }
+}
 
 extension View {
     func focusable(_: Bool) -> some View {
         return self
     }
 }
-
-
-//func headerView(type: String) -> some View{
-//    return HStack {
-//        Spacer()
-//        Text("Section header \(type)")
-//        Spacer()
-//    }.padding(.all, 10).background(Color.blue)
-//}
-
-
-struct MovieRow: View {
-    var movie: Movie
-    @State var focused: Bool = false
-    
-    var body: some View {
-        
-        VStack{
-            
-            NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
-            URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
-                     
-                     failure: { error, _ in
-                        Image("poster-placeholder").resizable()
-                     },
-                     content: {
-                        $0
-                            .resizable()
-                            //.renderingMode(.original)
-                            .aspectRatio(contentMode: .fill)
-                        
-                        //.clipped()
-                        //
-                     })
-                .frame(width: 200.0, height: 300.0)
-            
-            }.buttonStyle(PlainButtonStyle())
-            Text("\(movie.title)").frame(width: 200, height: 60)
-        }
-        
-    }
-}
-
-
-
-struct PlayerOverLay: View {
-    let action: () -> ()
-    
-    var body: some View {
-        
-        Text("dff")
-        
-        
-    }
-    
-}
-
 
 
 
@@ -224,6 +71,30 @@ struct LazyView<Content: View>: View {
         build()
     }
 }
+
+
+
+//func headerView(type: String) -> some View{
+//    return HStack {
+//        Spacer()
+//        Text("Section header \(type)")
+//        Spacer()
+//    }.padding(.all, 10).background(Color.blue)
+//}
+
+
+//struct PlayerOverLay: View {
+//    let action: () -> ()
+//
+//    var body: some View {
+//
+//        Text("dff")
+//
+//
+//    }
+//
+//}
+//
 
 
 //final class Loader: ObservableObject {
