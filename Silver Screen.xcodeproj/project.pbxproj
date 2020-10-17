@@ -1003,8 +1003,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "2.0.0-beta.1";
+				branch = version_2;
+				kind = branch;
 			};
 		};
 		7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
