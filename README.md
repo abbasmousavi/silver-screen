@@ -1,7 +1,7 @@
 ![](Shared/Assets.xcassets/App%20Icon%20%26%20Top%20Shelf%20Image.brandassets/Top%20Shelf%20Image%20Wide.imageset/Shelf1.png)
 
 # Silver Screen
-An open tvOS, iOS and macOS app to play free and publicly available classic movies from Internet Archive. This is the recreation of https://github.com/sarn/ARNClassicFilms in SwiftUI and Combine.
+An open tvOS, iOS and macOS app to play free and publicly available classic movies from Internet Archive. This is a complete rewrite of https://github.com/sarn/ARNClassicFilms in SwiftUI and Combine for tvOS 14.
 
 # Overview
 
