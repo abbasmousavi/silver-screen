@@ -593,7 +593,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.silver-screen";
+				PRODUCT_BUNDLE_IDENTIFIER = team.wizards.silverscreen;
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
@@ -615,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.silver-screen";
+				PRODUCT_BUNDLE_IDENTIFIER = team.wizards.silverscreen;
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
