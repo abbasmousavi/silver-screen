@@ -12,7 +12,7 @@ import URLImage
 struct MovieDetail: View {
     let movie: Movie
     @State private var isPresented = false
-    @Namespace private var namespace
+    //@Namespace private var namespace
     
     
     init(movie: Movie) {
@@ -45,46 +45,36 @@ struct MovieDetail: View {
             
             VStack {
                 
-                
-                
-                
-                
-                Text(movie.description)
-                    .padding(.bottom)
-                
+                HStack{
+                    Text(movie.title).font(.largeTitle)
+                    Spacer()
+                    
+                }.padding(.bottom)
                 
                 HStack{
-                    Text("Year: ").bold()
-                    Spacer()
-                    Text("\(movie.year)")
-                }//.padding(.bottom, 1)
-                
-                HStack{
-                    Text("Duration: ").bold()
-                    Spacer()
+
+                    Text(String(format: "%d", movie.year))
+                    Spacer(minLength: 20)
                     Text("\(movie.runtime / 60) Min")
-                }//.padding(.bottom, 1)
-                
-                HStack{
-                    Text("Rating: ").bold()
-                    Spacer()
-                    Text("\(movie.rating)")
-                }//.padding(.bottom, 1)
-                
-                HStack{
-                    Text("license: ").bold()
-                    Spacer()
+                    Spacer(minLength: 20)
+                    Text("TMDB Rating: " + String(format: "%.1f", movie.rating))
+                    Spacer(minLength: 20)
                     Text(movie.licenseString)
-                }//.padding(.bottom, 1)
+
+                } .padding(.bottom, 50)
+
+                HStack{
+                Text(movie.description)
+                }
                 
                 Spacer()
                 
                 HStack{
                 Button("Play") {
                     self.isPresented.toggle()
-                }.prefersDefaultFocus(true, in: namespace)
-                    Spacer()
-                }.padding(.bottom)
+                }
+                    
+                }
                 
                 
                 // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
@@ -93,7 +83,7 @@ struct MovieDetail: View {
                 MoviePlayer(movie: movie)
             }.padding(.horizontal, 100).frame(height: 602)
             
-            .focusScope(namespace)//.navigationBarTitle(movie.title)
+            //.focusScope(namespace)//.navigationBarTitle(movie.title)
     }
 }
         
