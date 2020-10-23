@@ -14,44 +14,40 @@ import URLImage
 
 
 struct ContentView: View {
-    @Namespace var namespace
-    @ObservedObject var viewModel = model()
 
-    
-    let columns = [
-        GridItem(.flexible(minimum: 0, maximum: .infinity)),
-        
-    ]
-    
-    let rows = [
-        GridItem(.flexible(minimum: 0, maximum: .infinity)),
-    ]
+    @ObservedObject var viewModel = model()
     
     
     var body: some View {
         
         TabView {
             
-            MovieList(movieType: nil).prefersDefaultFocus(true, in: namespace).tabItem {
+            MovieList(movieType: nil).tabItem {
                 Text("All Movies")
+                Image(systemName: "film")
             }
             
             MovieList(movieType: .comedy).tabItem {
                 Text("Comedy")
+                Image(systemName: "film")
             }
             
             MovieList(movieType: .noir).tabItem {
                 Text("Noir")
+                Image(systemName: "film")
             }
             
             MovieList(movieType: .horor).tabItem {
                 Text("Horor, Sci-fi")
+                Image(systemName: "film")
             }
             
             
-            AboutPage().padding(.horizontal, 200).tabItem {Text("About")}
+            AboutPage().tabItem {Text("About")
+                Image(systemName: "info.circle")
+            }
             
-        }.edgesIgnoringSafeArea(.all).focusScope(namespace)
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -60,81 +56,3 @@ extension View {
         return self
     }
 }
-
-
-
-
-
-struct LazyView<Content: View>: View {
-    let build: () -> Content
-    init(_ build: @autoclosure @escaping () -> Content) {
-        self.build = build
-    }
-    var body: Content {
-        build()
-    }
-}
-
-
-
-//func headerView(type: String) -> some View{
-//    return HStack {
-//        Spacer()
-//        Text("Section header \(type)")
-//        Spacer()
-//    }.padding(.all, 10).background(Color.blue)
-//}
-
-
-//struct PlayerOverLay: View {
-//    let action: () -> ()
-//
-//    var body: some View {
-//
-//        Text("dff")
-//
-//
-//    }
-//
-//}
-//
-
-
-//final class Loader: ObservableObject {
-//
-//    var task: URLSessionDataTask!
-//    @Published var data: Data? = nil
-//
-//    init(_ url: URL) {
-//        task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
-//            DispatchQueue.main.async {
-//                self.data = data
-//            }
-//        })
-//        task.resume()
-//    }
-//    deinit {
-//        task.cancel()
-//    }
-//}
-
-//let placeholder = UIImage(named: "poster-placeholder")!
-//
-//struct AsyncImage: View {
-//    init(url: URL) {
-//        self.imageLoader = Loader(url)
-//    }
-//
-//    @ObservedObject private var imageLoader: Loader
-//    var image: UIImage? {
-//        imageLoader.data.flatMap(UIImage.init)
-//    }
-//
-//
-//    var body: some View {
-//        Image(uiImage: image ?? placeholder)
-//            .resizable()
-//            .aspectRatio(contentMode: .fill)
-//        // .clipped()
-//    }
-//}

@@ -9,15 +9,53 @@ import Foundation
 import SwiftUI
 import URLImage
 
+
+enum Constants {
+
+    static let imageHeight = imageWidth * 1.5
+    static let textWidth = imageWidth
+    
+    #if os(iOS)
+    static let imageWidth: CGFloat = 130
+    static let textHeight: CGFloat = 30
+    #elseif os(tvOS)
+    static let textHeight: CGFloat = 60
+    static let imageWidth: CGFloat = 200
+    #endif
+    
+}
+
 struct MovieItem: View {
     var movie: Movie
     @State var focused: Bool = false
+    var corner: Bool = false
     
     var body: some View {
         
-        VStack{
+        VStack(spacing: 5){
             
             NavigationLink(destination: LazyView(MovieDetail(movie: movie))) {
+                
+//                URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
+//                                 options: URLImageOptions(
+////                                    identifier: id.uuidString,      // Custom identifier
+////                                    expireAfter: 300.0,             // Expire after 5 minutes
+//                                    cachePolicy: .returnCacheElseLoad(cacheDelay: nil, downloadDelay: 0.25) // Return cached image or download after delay
+//                                 ),
+//                                 empty: {
+//                                    Image("poster-placeholder").resizable()
+//                                 },
+//                                 inProgress: { progress -> Image in  // Display progress
+//                                    Image("poster-placeholder").resizable()
+//                                 },
+//                                 failure: { error, retry in         // Display error and retry
+//                                    Image("poster-placeholder").resizable()
+//                                 },
+//                                 content: { image in                // Content view
+//                                    image
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                 }).frame(width: Constants.imageWidth, height: Constants.imageHeight)
                 URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
 
                          failure: { error, _ in
@@ -28,15 +66,16 @@ struct MovieItem: View {
                                 .resizable()
                                 //.renderingMode(.original)
                                 .aspectRatio(contentMode: .fill)
-                                
+                                .cornerRadius(corner ? 10 : 0)
+
                             //.clipped()
                             //
-                         }).frame(width: 200.0, height: 300.0)
+                         }).frame(width: Constants.imageWidth, height: Constants.imageHeight)
                     
 
             }.buttonStyle(PlainButtonStyle())
-            Text("\(movie.title)").frame(width: 200, height: 60)
-        }
+            Text("\(movie.title)").frame(width: Constants.textWidth, height: Constants.textHeight)
+        }//.frame(width: Constants.textWidth, height: Constants.textHeight + Constants.imageHeight)
         
     }
 }
