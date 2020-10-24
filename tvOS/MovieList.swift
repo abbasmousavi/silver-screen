@@ -19,37 +19,44 @@ struct MovieList: View {
         viewModel.query(type: movieType)
     }
     
+    let rows = [
+            GridItem(.fixed(Constants.imageWidth)),
+        ]
+    
     var body: some View {
         
         NavigationView{
             
-            List {
+            ScrollView(.vertical) {
+            VStack {
                 
                 ForEach(1 ..< 8) { index in
                     
-                   if (!viewModel.movies[index].isEmpty){
-                    VStack {
+                  if (!viewModel.movies[index].isEmpty){
+                   // VStack {
                         Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
-                            .padding(.leading, 100).padding(.top, 70)
+                            .padding(.leading, 100)
                         
                         ScrollView(.horizontal) {
-                            HStack {
-                                Spacer().frame(width: 100)
+                            LazyHGrid(rows: rows){
+                                
                                 ForEach(viewModel.movies[index]) { movie in
                                     
-                                    MovieItem(movie: movie).padding(.top, 20).focusable(false)
+                                    MovieItem(movie: movie)//.padding(.top, 20)
+//
                                 }
-                                Spacer().frame(width: 100)
-                            }
+                            
+                            }.padding(.horizontal, 100).frame(height: 500)
                         }
-                   }.listRowInsets(EdgeInsets(top: 0, leading: -80, bottom: 0, trailing: -80))
-                }
+                  }
+                 //  }//.listRowInsets(EdgeInsets(top: 0, leading: -80, bottom: 0, trailing: -80))
+              // }
                 }
                 
-            }
-            .listStyle(PlainListStyle())
+            }}
+            //.listStyle(PlainListStyle())
             //.listRowInsets(EdgeInsets())
-            .edgesIgnoringSafeArea(.all).focusable(false)
+            .edgesIgnoringSafeArea(.horizontal)//.focusable(false)
             
         }
     }

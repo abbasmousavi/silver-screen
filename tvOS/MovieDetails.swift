@@ -12,7 +12,9 @@ import URLImage
 struct MovieDetail: View {
     let movie: Movie
     @State private var isPresented = false
-    //@Namespace private var namespace
+    @Namespace private var namespace
+    @Environment(\.resetFocus) var resetFocus
+
     
     
     init(movie: Movie) {
@@ -23,13 +25,7 @@ struct MovieDetail: View {
     
     
     var body: some View {
-        
-        
-        //        ZStack {
-        //
-        //            KFImage(URL(string: "https://image.tmdb.org/t/p/original\(movie.backdropURL)")!).resizable().aspectRatio(contentMode: .fill).edgesIgnoringSafeArea(.all).blur(radius: 10)
-        
-        
+
         HStack{
             
             URLImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")!,
@@ -72,7 +68,8 @@ struct MovieDetail: View {
                 HStack{
                 Button("Play") {
                     self.isPresented.toggle()
-                }
+                    resetFocus(in: namespace)
+                }//.prefersDefaultFocus(in: namespace)
                     
                 }
                 
@@ -80,8 +77,10 @@ struct MovieDetail: View {
                 // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
             }}
             .sheet(isPresented: $isPresented) {
-                MoviePlayer(movie: movie)
+               // MoviePlayer(movie: movie)
+                AVPlayerView(videoURL: URL(string: "https://archive.org/download/\(movie.archive_id)/\(movie.source)")!).ignoresSafeArea()
             }.padding(.horizontal, 100).frame(height: 602)
+           
             
             //.focusScope(namespace)//.navigationBarTitle(movie.title)
     }
