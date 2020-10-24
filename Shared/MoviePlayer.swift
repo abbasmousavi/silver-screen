@@ -28,7 +28,7 @@ struct MoviePlayer: View {
     
     var body: some View {
         
-        VStack {
+     //   VStack {
             
             VideoPlayer(player: player) {
                 
@@ -36,7 +36,7 @@ struct MoviePlayer: View {
                 //                    self.presentationMode.wrappedValue.dismiss()
                 //                }
                 
-            }
+     //       }
             
             
             

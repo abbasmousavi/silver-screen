@@ -19,13 +19,10 @@ struct MovieList: View {
         viewModel.query(type: movieType)
     }
     
-    let rows = [
-            GridItem(.fixed(Constants.imageWidth)),
-        ]
-    
+    let  rows = [GridItem()]
     var body: some View {
         
-        NavigationView{
+      // NavigationView{
             
             ScrollView(.vertical) {
             VStack {
@@ -38,11 +35,11 @@ struct MovieList: View {
                             .padding(.leading, 100)
                         
                         ScrollView(.horizontal) {
-                            LazyHGrid(rows: rows){
+                            LazyHGrid(rows: rows, spacing: 50){
                                 
                                 ForEach(viewModel.movies[index]) { movie in
                                     
-                                    MovieItem(movie: movie)//.padding(.top, 20)
+                                    MovieItem(movie: movie)//.frame(width: Constants.imageWidth, height: 500)
 //
                                 }
                             
@@ -58,6 +55,6 @@ struct MovieList: View {
             //.listRowInsets(EdgeInsets())
             .edgesIgnoringSafeArea(.horizontal)//.focusable(false)
             
-        }
+        //}
     }
 }

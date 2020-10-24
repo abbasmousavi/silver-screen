@@ -19,35 +19,36 @@ struct ContentView: View {
     
     
     var body: some View {
-        
+        NavigationView{
         TabView {
             
-            MovieList(movieType: nil).tabItem {
+            LazyView(MovieList(movieType: nil)).tabItem {
                 Text("All Movies")
                 Image(systemName: "film")
             }
             
-            MovieList(movieType: .comedy).tabItem {
+            LazyView(MovieList(movieType: .comedy)).tabItem {
                 Text("Comedy")
                 Image(systemName: "film")
             }
             
-            MovieList(movieType: .noir).tabItem {
+            LazyView(MovieList(movieType: .noir)).tabItem {
                 Text("Noir")
                 Image(systemName: "film")
             }
             
-            MovieList(movieType: .horor).tabItem {
+            LazyView(MovieList(movieType: .horor)).tabItem {
                 Text("Horor, Sci-fi")
                 Image(systemName: "film")
             }
             
             
-            AboutPage().tabItem {Text("About")
+            LazyView(AboutPage()).tabItem {Text("About")
                 Image(systemName: "info.circle")
             }
             
         }.edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

@@ -77,8 +77,8 @@ struct MovieDetail: View {
                 // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
             }}
             .sheet(isPresented: $isPresented) {
-               // MoviePlayer(movie: movie)
-                AVPlayerView(videoURL: URL(string: "https://archive.org/download/\(movie.archive_id)/\(movie.source)")!).ignoresSafeArea()
+               MoviePlayer(movie: movie)
+//                AVPlayerView(videoURL: URL(string: "https://archive.org/download/\(movie.archive_id)/\(movie.source)")!).ignoresSafeArea()
             }.padding(.horizontal, 100).frame(height: 602)
            
             

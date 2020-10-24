@@ -41,26 +41,35 @@ struct MovieItem: View {
                 showDetails.toggle()
                 
             }) {
+               
                 
-                URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
-                         
-                         failure: { error, _ in
-                            Image("poster-placeholder").resizable()//.frame(width: Constants.imageWidth, height: Constants.imageHeight)
-                         },
-                         content: {
-                            $0
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .cornerRadius(corner ? 10 : 0)
-                            
-                            //.clipped()
-                            //
-                         }).frame(width: Constants.imageWidth, height: Constants.imageHeight)
+                AsyncImage(
+                   url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
+                   placeholder: {  Image("poster-placeholder").resizable() },
+                   image: { Image(uiImage: $0).resizable() }
+                )
+
+////                URLImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
+////
+////                         failure: { error, _ in
+////                            Image("poster-placeholder").resizable()//.frame(width: Constants.imageWidth, height: Constants.imageHeight)
+////                         },
+////                         content: {
+////                            $0
+////                                .resizable()
+////                                .aspectRatio(contentMode: .fill)
+////                                .cornerRadius(corner ? 10 : 0)
+////
+////                            //.clipped()
+////                            //
+////                         })
+////
+                    .frame(width: Constants.imageWidth, height: Constants.imageHeight)
                 
             }.buttonStyle(CardButtonStyle())
             Text(isFocused ? "\(movie.title)" : "-").frame(width: Constants.textWidth, height: Constants.textHeight)
             NavigationLink(destination: LazyView(MovieDetail(movie: movie)), isActive: $showDetails){
-            }.buttonStyle(PlainButtonStyle()).hidden()
+            }.buttonStyle(PlainButtonStyle()).hidden().frame(width: 0, height: 0)
         }
         .onAppear {
             showDetails = false
