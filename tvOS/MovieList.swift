@@ -18,43 +18,25 @@ struct MovieList: View {
         self.movieType = movieType
         viewModel.query(type: movieType)
     }
-    
-    let  rows = [GridItem()]
+
     var body: some View {
         
-      // NavigationView{
-            
-            ScrollView(.vertical) {
+        // NavigationView{
+        
+        ScrollView(.vertical) {
             VStack {
                 
                 ForEach(1 ..< 8) { index in
                     
-                  if (!viewModel.movies[index].isEmpty){
-                   // VStack {
+                    if (!viewModel.movies[index].isEmpty){
+                        // VStack {
                         Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
                             .padding(.leading, 100)
                         
-                        ScrollView(.horizontal) {
-                            LazyHGrid(rows: rows, spacing: 50){
-                                
-                                ForEach(viewModel.movies[index]) { movie in
-                                    
-                                    MovieItem(movie: movie)//.frame(width: Constants.imageWidth, height: 500)
-//
-                                }
-                            
-                            }.padding(.horizontal, 100).frame(height: 500)
-                        }
-                  }
-                 //  }//.listRowInsets(EdgeInsets(top: 0, leading: -80, bottom: 0, trailing: -80))
-              // }
+                        MovieRow(movies: viewModel.movies[index])
+                    }
                 }
-                
-            }}
-            //.listStyle(PlainListStyle())
-            //.listRowInsets(EdgeInsets())
-            .edgesIgnoringSafeArea(.horizontal)//.focusable(false)
-            
-        //}
+            }
+        }.edgesIgnoringSafeArea(.horizontal)
     }
 }
