@@ -44,11 +44,13 @@ struct MovieRow: View {
                     Button(action: {
                         showDetails.toggle()
                     }) {
-                        AsyncImage(
-                            url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
-                            placeholder: {  Image("poster-placeholder").resizable() },
-                            image: { Image(uiImage: $0).resizable() }
-                        ).frame(width: Constants.imageWidth, height: Constants.imageHeight)
+//                        AsyncImage(
+//                            url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
+//                            placeholder: {  Image("poster-placeholder").resizable() },
+//                            image: { Image(uiImage: $0).resizable()
+//                                
+//                            }
+//                        ).frame(width: Constants.imageWidth, height: Constants.imageHeight)
                         
                         
                     }.buttonStyle(CardButtonStyle())
