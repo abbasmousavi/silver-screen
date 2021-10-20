@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import URLImage
 
 
 //enum Constants {
@@ -28,39 +27,49 @@ import URLImage
 struct MovieRow: View {
     
     var movies: [Movie]
-    @Namespace private var namespace
-    @Environment(\.isFocused) var isFocused: Bool
+    //@Namespace private var namespace
+    //@Environment(\.isFocused) var isFocused: Bool
     @State var showDetails: Bool = false
     
-    var rows: [GridItem] = [GridItem(), GridItem()]
+    var rows: [GridItem] = [.init(.fixed(Constants.imageHeight)), .init(.fixed(Constants.textHeight))]
+            
+    @FocusState private var focusedField: String?
 
     var body: some View {
         
         ScrollView(.horizontal) {
-            LazyHGrid(rows: rows){
+            LazyHGrid(rows: rows, alignment: .top){
                
                 ForEach(movies) { movie in
+                    
+                   
                     
                     Button(action: {
                         showDetails.toggle()
                     }) {
-//                        AsyncImage(
-//                            url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")!,
-//                            placeholder: {  Image("poster-placeholder").resizable() },
-//                            image: { Image(uiImage: $0).resizable()
-//                                
-//                            }
-//                        ).frame(width: Constants.imageWidth, height: Constants.imageHeight)
+
+                        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")) { image in
+                            image.resizable()
+                                .aspectRatio(contentMode: .fill)
+                        } placeholder: {
+                            Image("poster-placeholder").resizable()
+                        }
+                       .frame(width: Constants.imageWidth, height: Constants.imageHeight)
+                       
                         
                         
                     }.buttonStyle(CardButtonStyle())
+//                        .frame(width: Constants.imageWidth, height: Constants.imageHeight)
+                   .focused($focusedField, equals: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")
                     
-                    Text(isFocused ? "\(movie.title)" : "\(movie.title)")
-                        .frame(width: Constants.textWidth, height: Constants.textHeight)
+                    
+                    Text(focusedField == "https://image.tmdb.org/t/p/w400\(movie.posterURL)" ? "\(movie.title)" : "")
+                       .frame(width: Constants.textWidth, height: Constants.textHeight)
+
                    
                 }
                 
-            }.padding(.horizontal, 100).frame(height: 500)
+            }.padding(.top, 30).padding(.horizontal, 100)//.frame(height: 500)
         }
     }
 }
@@ -140,3 +149,13 @@ struct MovieRow: View {
 
 //NavigationLink(destination: LazyView(MovieDetail(movie: movie)), isActive: $showDetails){
 //}.buttonStyle(PlainButtonStyle()).hidden()
+//struct MyButtonStyle: CardButtonStyle {
+//    @Environment(\.isFocused) var focused: Bool
+//
+//    func makeBody(configuration: Configuration) -> some View {
+//        configuration.label
+//            .onChange(of: focused) { newValue in
+//                // do whatever based on focus
+//            }
+//    }
+//}

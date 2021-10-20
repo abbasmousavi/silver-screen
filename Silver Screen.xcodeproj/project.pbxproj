@@ -13,9 +13,6 @@
 		7C044CA424D782000054654F /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 7C044CA324D782000054654F /* GRDB */; };
 		7C044CA524D782070054654F /* ClassicFilms.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */; };
 		7C044CA624D782070054654F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF8064D24CC8E3100503C38 /* Assets.xcassets */; };
-		7C15AF0924E9EE520044B62F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C15AF0824E9EE520044B62F /* URLImage */; };
-		7C15AF0B24E9F0A80044B62F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C15AF0A24E9F0A80044B62F /* URLImage */; };
-		7C15AF0D24E9F0D20044B62F /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C15AF0C24E9F0D20044B62F /* URLImage */; };
 		7C3690D52539FE640067EF83 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3690D32539FE640067EF83 /* MovieDetails.swift */; };
 		7C3690DE253A0F710067EF83 /* MoviePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3690DD253A0F710067EF83 /* MoviePlayer.swift */; };
 		7C3690DF253A0F710067EF83 /* MoviePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3690DD253A0F710067EF83 /* MoviePlayer.swift */; };
@@ -132,7 +129,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C15AF0B24E9F0A80044B62F /* URLImage in Frameworks */,
 				7C044CA424D782000054654F /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C15AF0924E9EE520044B62F /* URLImage in Frameworks */,
 				7CF8068D24CC914A00503C38 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,7 +153,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C15AF0D24E9F0D20044B62F /* URLImage in Frameworks */,
 				7CF8069724CCDCBD00503C38 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +302,6 @@
 			name = "Silver Screen (tvOS)";
 			packageProductDependencies = (
 				7C044CA324D782000054654F /* GRDB */,
-				7C15AF0A24E9F0A80044B62F /* URLImage */,
 			);
 			productName = "silver-screen";
 			productReference = 7C044C7424D781230054654F /* Silver Screen.app */;
@@ -349,7 +342,6 @@
 			name = "Silver Screen (iOS)";
 			packageProductDependencies = (
 				7CF8068C24CC914A00503C38 /* GRDB */,
-				7C15AF0824E9EE520044B62F /* URLImage */,
 			);
 			productName = "Silver Screen (iOS)";
 			productReference = 7CF8065224CC8E3100503C38 /* Silver Screen.app */;
@@ -370,7 +362,6 @@
 			name = "Silver Screen (macOS)";
 			packageProductDependencies = (
 				7CF8069624CCDCBD00503C38 /* GRDB */,
-				7C15AF0C24E9F0D20044B62F /* URLImage */,
 			);
 			productName = "Silver Screen (macOS)";
 			productReference = 7CF8065A24CC8E3100503C38 /* Silver Screen.app */;
@@ -454,7 +445,6 @@
 			mainGroup = 7CF8064524CC8E2E00503C38;
 			packageReferences = (
 				7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				7C15AF0724E9EE520044B62F /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 7CF8065324CC8E3100503C38 /* Products */;
 			projectDirPath = "";
@@ -630,7 +620,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -652,7 +642,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1033,14 +1023,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7C15AF0724E9EE520044B62F /* XCRemoteSwiftPackageReference "url-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:groue/GRDB.swift.git";
@@ -1056,21 +1038,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		7C15AF0824E9EE520044B62F /* URLImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C15AF0724E9EE520044B62F /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
-		};
-		7C15AF0A24E9F0A80044B62F /* URLImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C15AF0724E9EE520044B62F /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
-		};
-		7C15AF0C24E9F0D20044B62F /* URLImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7C15AF0724E9EE520044B62F /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
 		};
 		7CE3613F24E1ED36006206D4 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import URLImage
 import AVKit
 
 struct MovieDetail: View {
