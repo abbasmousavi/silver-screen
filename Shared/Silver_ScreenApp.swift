@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AVFoundation
-import URLImage
 
 @main
 struct Silver_ScreenApp: App {
@@ -19,7 +18,6 @@ struct Silver_ScreenApp: App {
         } catch  {
             
         }
-        URLImageService.shared.cleanup()
     }
     
     var body: some Scene {

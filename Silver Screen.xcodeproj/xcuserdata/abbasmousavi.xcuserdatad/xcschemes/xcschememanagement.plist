@@ -91,7 +91,7 @@
 		<key>DataFetcher.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>MyPlayground (Playground) 1.xcscheme</key>
 		<dict>
@@ -122,7 +122,7 @@
 		<key>Silver Screen (macOS).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Silver Screen (tvOS).xcscheme_^#shared#^_</key>
 		<dict>

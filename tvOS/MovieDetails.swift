@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import URLImage
 
 struct MovieDetail: View {
     let movie: Movie
@@ -28,16 +27,15 @@ struct MovieDetail: View {
 
         HStack{
             
-            URLImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")!,
-                     failure: { error, _ in
-                        Image("poster-placeholder")
-                     },
-                     content: {
-                        $0.resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(20)
-                     })
-                .frame(width: 400.0, height: 600.0)
+            
+            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")) { image in
+                                        image.resizable()
+                
+                    .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        Image("poster-placeholder")
+                                    }
+                                    .frame(width: 400.0, height: 600.0)
             
             VStack {
                 
