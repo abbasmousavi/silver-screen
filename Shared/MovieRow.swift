@@ -30,6 +30,7 @@ struct MovieRow: View {
     //@Namespace private var namespace
     //@Environment(\.isFocused) var isFocused: Bool
     @State var showDetails: Bool = false
+    @State var selectedMovie: Movie = Movie.empty()
     
     var rows: [GridItem] = [.init(.fixed(Constants.imageHeight)), .init(.fixed(Constants.textHeight))]
             
@@ -45,7 +46,10 @@ struct MovieRow: View {
                    
                     
                     Button(action: {
+                        self.selectedMovie = movie
+                        print(selectedMovie)
                         showDetails.toggle()
+                        
                     }) {
 
                         AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")) { image in
@@ -63,13 +67,13 @@ struct MovieRow: View {
                    .focused($focusedField, equals: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")
                     
                     
-                    Text(focusedField == "https://image.tmdb.org/t/p/w400\(movie.posterURL)" ? "\(movie.title)" : "")
+                    Text("\(movie.title)")
                        .frame(width: Constants.textWidth, height: Constants.textHeight)
-
-                   
+                       .padding(.top, focusedField == "https://image.tmdb.org/t/p/w400\(movie.posterURL)" ? 0 : -20)
                 }
                 
             }.padding(.top, 30).padding(.horizontal, 100)//.frame(height: 500)
+            NavigationLink("", destination: LazyView(MovieDetail(movie: selectedMovie)), isActive: $showDetails).hidden()
         }
     }
 }

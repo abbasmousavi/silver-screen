@@ -18,25 +18,27 @@ struct ContentView: View {
     
     
     var body: some View {
-        NavigationView{
-        TabView {
+        
+       //
+            TabView {
+       
             
-            LazyView(MovieList(movieType: nil)).tabItem {
+                LazyView(NavigationView{MovieList(movieType: nil)}).tabItem {
                 Text("All Movies")
                 Image(systemName: "film")
             }
             
-            LazyView(MovieList(movieType: .comedy)).tabItem {
+                LazyView(NavigationView{MovieList(movieType: .comedy)}).tabItem {
                 Text("Comedy")
                 Image(systemName: "film")
             }
             
-            LazyView(MovieList(movieType: .noir)).tabItem {
+                LazyView(NavigationView{MovieList(movieType: .noir)}).tabItem {
                 Text("Noir")
                 Image(systemName: "film")
             }
             
-            LazyView(MovieList(movieType: .horor)).tabItem {
+                LazyView(NavigationView{MovieList(movieType: .horor)}).tabItem {
                 Text("Horor, Sci-fi")
                 Image(systemName: "film")
             }
@@ -47,12 +49,12 @@ struct ContentView: View {
             }
             
         }.edgesIgnoringSafeArea(.all)
-        }
+       // }
     }
 }
 
-extension View {
-    func focusable(_: Bool) -> some View {
-        return self
-    }
-}
+//extension View {
+//    func focusable(_: Bool) -> some View {
+//        return self
+//    }
+//}
