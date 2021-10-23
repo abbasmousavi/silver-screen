@@ -11,11 +11,7 @@ import SwiftUI
 struct MovieDetail: View {
     let movie: Movie
     @State private var isPresented = false
-    @Namespace private var namespace
-    @Environment(\.resetFocus) var resetFocus
-
-    
-    
+   
     init(movie: Movie) {
         
         self.movie = movie
@@ -66,7 +62,7 @@ struct MovieDetail: View {
                 HStack{
                 Button("Play") {
                     self.isPresented.toggle()
-                    resetFocus(in: namespace)
+
                 }//.prefersDefaultFocus(in: namespace)
                     
                 }

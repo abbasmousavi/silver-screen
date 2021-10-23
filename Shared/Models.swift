@@ -40,6 +40,10 @@ struct Movie: Identifiable {
             return "Creative Commons"
         }
     }
+    
+    static func empty() -> Movie {
+        Movie(id: 0, title: "", description: "", posterURL: "", backdropURL: "", runtime: 0, source: "", year: 0, tmdb: 0, archive_id: "", license: "", rating: 0.0, collection: "")
+    }
 }
 
 extension Movie: Codable, FetchableRecord, MutablePersistableRecord {
