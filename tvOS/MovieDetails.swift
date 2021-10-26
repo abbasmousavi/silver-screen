@@ -63,71 +63,15 @@ struct MovieDetail: View {
                 Button("Play") {
                     self.isPresented.toggle()
 
-                }//.prefersDefaultFocus(in: namespace)
-                    
                 }
-                
-                
-                // .fullScreenCover(isPresented: $isPresented, content: MoviePlayer(movie: movie))
+                }
             }}
             .sheet(isPresented: $isPresented) {
                MoviePlayer(movie: movie)
-//                AVPlayerView(videoURL: URL(string: "https://archive.org/download/\(movie.archive_id)/\(movie.source)")!).ignoresSafeArea()
+
             }.padding(.horizontal, 100).frame(height: 602)
            
             
-            //.focusScope(namespace)//.navigationBarTitle(movie.title)
+            
     }
 }
-        
-        //        }
-        
-        
-        
-        
-        //  PresentationButton(Text("Play"),destination: MoviePlayer(movie: movie))
-        
-        
-        
-        
-        //            switch playerObserver.currentStatus {
-        //            case nil:
-        //                Text("nothing is here")
-        //            case .waitingToPlayAtSpecifiedRate:
-        //                ProgressView()
-        //
-        //            case .playing, .paused:
-        //                //Text("playing")
-        //
-        //
-        //
-        //
-        //
-        //            case .some(_):
-        //                Text("ddgdgdgdgdgdgdgdgdgdg")
-        //            }
-        //        }.navigationBarTitle(movie.title)
-        
-        
-        //        Text("https://archive.org/download/\(movie.id!)/\(movie.source)").onReceive(playerObserver.$currentStatus) { output in
-        //            switch output {
-        //                            case nil:
-        //                                Text("nothing is here")
-        //                            case .waitingToPlayAtSpecifiedRate:
-        //                                Text("waiting")
-        //                            case .paused:
-        //                                Text("paused")
-        //                            case .playing:
-        //                                Text("playing")
-        //            case .some(_):
-        //                Text("I dont know")
-        //            }
-        //       }
-        
-
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
