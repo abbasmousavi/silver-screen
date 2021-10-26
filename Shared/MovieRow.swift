@@ -27,8 +27,6 @@ import SwiftUI
 struct MovieRow: View {
     
     var movies: [Movie]
-    //@Namespace private var namespace
-    //@Environment(\.isFocused) var isFocused: Bool
     @State var showDetails: Bool = false
     @State var selectedMovie: Movie = Movie.empty()
     
