@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "GRDB",
-        "repositoryURL": "git@github.com:groue/GRDB.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "32b2923e890df320906e64cbd0faca22a8bfda14",
-          "version": "5.12.0"
-        }
+  "pins" : [
+    {
+      "identity" : "grdb.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:groue/GRDB.swift.git",
+      "state" : {
+        "revision" : "32b2923e890df320906e64cbd0faca22a8bfda14",
+        "version" : "5.12.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

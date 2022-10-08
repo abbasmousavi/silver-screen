@@ -44,8 +44,6 @@
 		7CDD2F6724E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
 		7CDD2F6824E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
 		7CDD2F6924E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
-		7CDD2F6B24E2CE6700E65AEA /* TMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6A24E2CE6700E65AEA /* TMDBModel.swift */; };
-		7CE3613A24E1ECBD006206D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3613924E1ECBD006206D4 /* main.swift */; };
 		7CE3613E24E1ED29006206D4 /* ClassicFilms.sqlite in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */; };
 		7CE3614024E1ED36006206D4 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE3613F24E1ED36006206D4 /* GRDB */; };
 		7CF7F247253FAF2900DB13EE /* Subtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7F246253FAF2900DB13EE /* Subtitles.swift */; };
@@ -105,9 +103,7 @@
 		7CC00780254261D000973AA4 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		7CC008072544853300973AA4 /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		7CDD2F6524E1FC9800E65AEA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		7CDD2F6A24E2CE6700E65AEA /* TMDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBModel.swift; sourceTree = "<group>"; };
 		7CE3613724E1ECBD006206D4 /* DataFetcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataFetcher; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CE3613924E1ECBD006206D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7CF7F246253FAF2900DB13EE /* Subtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitles.swift; sourceTree = "<group>"; };
 		7CF8064B24CC8E2F00503C38 /* Silver_ScreenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Silver_ScreenApp.swift; sourceTree = "<group>"; };
 		7CF8064D24CC8E3100503C38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,15 +180,6 @@
 			path = tvOS;
 			sourceTree = "<group>";
 		};
-		7CE3613824E1ECBD006206D4 /* DataFetcher */ = {
-			isa = PBXGroup;
-			children = (
-				7CE3613924E1ECBD006206D4 /* main.swift */,
-				7CDD2F6A24E2CE6700E65AEA /* TMDBModel.swift */,
-			);
-			path = DataFetcher;
-			sourceTree = "<group>";
-		};
 		7CF8064524CC8E2E00503C38 = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +189,6 @@
 				7C044C7524D781230054654F /* tvOS */,
 				7CF8066524CC8E3100503C38 /* Tests iOS */,
 				7CF8067024CC8E3100503C38 /* Tests macOS */,
-				7CE3613824E1ECBD006206D4 /* DataFetcher */,
 				7CF8065324CC8E3100503C38 /* Products */,
 				7CF8069324CCDCB300503C38 /* Frameworks */,
 			);
@@ -528,8 +514,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE3613A24E1ECBD006206D4 /* main.swift in Sources */,
-				7CDD2F6B24E2CE6700E65AEA /* TMDBModel.swift in Sources */,
 				7CDD2F6924E1FC9800E65AEA /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
