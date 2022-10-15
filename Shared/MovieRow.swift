@@ -15,17 +15,15 @@ struct MovieRow: View {
     @State var selectedMovie: Movie = Movie.empty()
     
     var rows: [GridItem] = [.init(.fixed(Constants.imageHeight)), .init(.fixed(Constants.textHeight))]
-            
+    
     @FocusState private var focusedField: String?
-
+    
     var body: some View {
         
         ScrollView(.horizontal) {
             LazyHGrid(rows: rows, alignment: .top){
-               
+                
                 ForEach(movies) { movie in
-                    
-                   
                     
                     Button(action: {
                         self.selectedMovie = movie
@@ -33,34 +31,25 @@ struct MovieRow: View {
                         showDetails.toggle()
                         
                     }) {
-
                         AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")) { image in
                             image.resizable()
                                 .aspectRatio(contentMode: .fill)
                         } placeholder: {
                             Image("poster-placeholder").resizable()
                         }
-                       .frame(width: Constants.imageWidth, height: Constants.imageHeight)
-                       
-                        
-                        
+                        .frame(width: Constants.imageWidth, height: Constants.imageHeight)
+
                     }.buttonStyle(CardButtonStyle())
-                   .focused($focusedField, equals: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")
-                    
+                        .focused($focusedField, equals: "https://image.tmdb.org/t/p/w400\(movie.posterURL)")
                     
                     Text("\(movie.title)")
-                       .frame(width: Constants.textWidth, height: Constants.textHeight)
-                       .padding(.top, focusedField == "https://image.tmdb.org/t/p/w400\(movie.posterURL)" ? 0 : -20)
+                        .frame(width: Constants.textWidth, height: Constants.textHeight)
+                        .padding(.top, focusedField == "https://image.tmdb.org/t/p/w400\(movie.posterURL)" ? 0 : -20)
                 }
-                
-            }.padding(.top, 30).padding(.horizontal, 100)//.frame(height: 500)
-               
-                                 
-            NavigationLink(value: selectedMovie){}
-                .navigationDestination(for: Movie.self) { movie in
-                        LazyView(MovieDetail(movie: movie))
-                    }
+            }.padding(.top, 30).padding(.horizontal, 100)
             
+            NavigationLink("", destination: LazyView(MovieDetail(movie: selectedMovie)), isActive: $showDetails).hidden()
+
         }
     }
 }

@@ -14,22 +14,19 @@ struct MovieList: View {
     private var movieType: MovieType?
     
     init(movieType: MovieType?) {
-        
         self.movieType = movieType
         viewModel.query(type: movieType)
     }
-
+    
     var body: some View {
-
         ScrollView(.vertical) {
             VStack {
-                
                 ForEach(1 ..< 8) { index in
-                    
-                    if (!viewModel.movies[index].isEmpty){
-                        Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
-                            .padding(.leading, 100)
-                        
+                    if (!viewModel.movies[index].isEmpty) {
+                        Text("19\(index * 10)s Movies").font(.body).bold().frame(
+                            maxWidth:.infinity,
+                            alignment: .leading
+                        ).padding(.leading, 100)
                         MovieRow(movies: viewModel.movies[index])
                     }
                 }
