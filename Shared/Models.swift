@@ -15,7 +15,7 @@ enum MovieType: String {
     case horor = "SciFi_Horror"
 }
 
-struct Movie: Identifiable {
+struct Movie: Identifiable, Hashable {
     
     var id: Int
     var title: String
@@ -63,18 +63,11 @@ class model: ObservableObject {
     
     var pit : AnyCancellable?
     
-    
-    
     init () {
         var config = Configuration()
         config.readonly = true
         let path = Bundle.main.path(forResource: "ClassicFilms", ofType: "sqlite")
         dbQueue = try! DatabaseQueue(path: path!, configuration: config)
-        
-        
-        //query()
-        
-        //self.movies = [Movie(id: "kjhkj", title: "jhjhg")]
     }
     
     func query (type: MovieType? = nil) {
@@ -101,14 +94,7 @@ class model: ObservableObject {
             DispatchQueue.main.async {
                 self.movies = movies1
             }
-            
-            
-            print("__________")
         })
         
     }
-    
-    //private var playersCancellable: AnyCancellable?
-    
-    
 }

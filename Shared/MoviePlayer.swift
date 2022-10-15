@@ -27,25 +27,13 @@ struct MoviePlayer: View {
     }
     
     var body: some View {
-        
-     //   VStack {
             
             VideoPlayer(player: player) {
-                
-                //                Button("Close"){
-                //                    self.presentationMode.wrappedValue.dismiss()
-                //                }
-                
-     //       }
-            
-            
-            
         }.onAppear {
             player.play()
         }.onDisappear{
             player.pause()
         }
-        
         .edgesIgnoringSafeArea(.all)
     }
 }

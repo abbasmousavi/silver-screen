@@ -66,31 +66,18 @@ struct AboutPage: View {
 struct AboutPage: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
-    
     var body: some View {
         GeometryReader { g in
             ScrollView(.vertical, showsIndicators: false){
                 
                 VStack {
-                    
-                    
                     switch horizontalSizeClass {
                     case .compact:
-                        
-                        
-                        
-                        
                         Assets.iaImage().frame(width: 150).padding(.bottom)
                         Assets.iaText().padding(.bottom)
                         
                         Assets.tmdbImage().frame(width: 150).padding(.bottom)
                         Assets.tmdbText().padding(.bottom)
-                        
-                        
-                        
-                        
-                        
                     default:
                         
                         HStack{
@@ -111,7 +98,4 @@ struct AboutPage: View {
         }
     }
 }
-
-
-
 #endif
