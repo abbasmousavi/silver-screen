@@ -16,14 +16,9 @@ struct MovieDetail: View {
         
         self.movie = movie
     }
-    
-    
-    
     var body: some View {
 
         HStack{
-            
-            
             AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original\(movie.posterURL)")) { image in
                                         image.resizable()
                 
@@ -68,10 +63,6 @@ struct MovieDetail: View {
             }}
             .sheet(isPresented: $isPresented) {
                MoviePlayer(movie: movie)
-
             }.padding(.horizontal, 100).frame(height: 602)
-           
-            
-            
     }
 }

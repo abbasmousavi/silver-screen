@@ -10,16 +10,12 @@ import GRDB
 import Combine
 import AVKit
 
-
-
 struct ContentView: View {
 
     @ObservedObject var viewModel = model()
     
     
     var body: some View {
-        
-       //
             TabView {
        
             
@@ -49,12 +45,5 @@ struct ContentView: View {
             }
             
         }.edgesIgnoringSafeArea(.all)
-       // }
     }
 }
-
-//extension View {
-//    func focusable(_: Bool) -> some View {
-//        return self
-//    }
-//}

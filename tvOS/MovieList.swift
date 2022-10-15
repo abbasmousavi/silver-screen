@@ -20,16 +20,13 @@ struct MovieList: View {
     }
 
     var body: some View {
-        
-        // NavigationView{
-        
+
         ScrollView(.vertical) {
             VStack {
                 
                 ForEach(1 ..< 8) { index in
                     
                     if (!viewModel.movies[index].isEmpty){
-                        // VStack {
                         Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
                             .padding(.leading, 100)
                         

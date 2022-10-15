@@ -33,9 +33,6 @@
 		7C3691E3253E63E50067EF83 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3690D32539FE640067EF83 /* MovieDetails.swift */; };
 		7CC0077225425CC700973AA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3691A8253E3E3B0067EF83 /* ContentView.swift */; };
 		7CC0077925425CDF00973AA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3691A8253E3E3B0067EF83 /* ContentView.swift */; };
-		7CC00781254261D000973AA4 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC00780254261D000973AA4 /* AVPlayerView.swift */; };
-		7CC00782254261D000973AA4 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC00780254261D000973AA4 /* AVPlayerView.swift */; };
-		7CC00783254261D000973AA4 /* AVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC00780254261D000973AA4 /* AVPlayerView.swift */; };
 		7CC0078A2542622200973AA4 /* Subtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7F246253FAF2900DB13EE /* Subtitles.swift */; };
 		7CC008082544853300973AA4 /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC008072544853300973AA4 /* MovieRow.swift */; };
 		7CC008092544853300973AA4 /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC008072544853300973AA4 /* MovieRow.swift */; };
@@ -43,9 +40,6 @@
 		7CDD2F6624E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
 		7CDD2F6724E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
 		7CDD2F6824E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
-		7CDD2F6924E1FC9800E65AEA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD2F6524E1FC9800E65AEA /* Models.swift */; };
-		7CE3613E24E1ED29006206D4 /* ClassicFilms.sqlite in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */; };
-		7CE3614024E1ED36006206D4 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 7CE3613F24E1ED36006206D4 /* GRDB */; };
 		7CF7F247253FAF2900DB13EE /* Subtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7F246253FAF2900DB13EE /* Subtitles.swift */; };
 		7CF8066724CC8E3100503C38 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8066624CC8E3100503C38 /* Tests_iOS.swift */; };
 		7CF8067224CC8E3100503C38 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF8067124CC8E3100503C38 /* Tests_macOS.swift */; };
@@ -74,19 +68,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		7CE3613524E1ECBD006206D4 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				7CE3613E24E1ED29006206D4 /* ClassicFilms.sqlite in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		7C044C6D24D7803F0054654F /* ClassicFilms.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClassicFilms.sqlite; sourceTree = "<group>"; };
 		7C044C7424D781230054654F /* Silver Screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Silver Screen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,10 +81,8 @@
 		7C3691B0253E46870067EF83 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		7C3691C0253E48250067EF83 /* MovieList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		7C3691D5253E63C60067EF83 /* MovieDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
-		7CC00780254261D000973AA4 /* AVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerView.swift; sourceTree = "<group>"; };
 		7CC008072544853300973AA4 /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		7CDD2F6524E1FC9800E65AEA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		7CE3613724E1ECBD006206D4 /* DataFetcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataFetcher; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF7F246253FAF2900DB13EE /* Subtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitles.swift; sourceTree = "<group>"; };
 		7CF8064B24CC8E2F00503C38 /* Silver_ScreenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Silver_ScreenApp.swift; sourceTree = "<group>"; };
 		7CF8064D24CC8E3100503C38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,14 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C044CA424D782000054654F /* GRDB in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7CE3613424E1ECBD006206D4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7CE3614024E1ED36006206D4 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +173,6 @@
 				7C3691B0253E46870067EF83 /* LazyView.swift */,
 				7C3690FB253B98530067EF83 /* MovieItem.swift */,
 				7CC008072544853300973AA4 /* MovieRow.swift */,
-				7CC00780254261D000973AA4 /* AVPlayerView.swift */,
 				7C3690E7253A100B0067EF83 /* AboutPage.swift */,
 				7CDD2F6524E1FC9800E65AEA /* Models.swift */,
 				7CF7F246253FAF2900DB13EE /* Subtitles.swift */,
@@ -221,7 +191,6 @@
 				7CF8066224CC8E3100503C38 /* Tests iOS.xctest */,
 				7CF8066D24CC8E3100503C38 /* Tests macOS.xctest */,
 				7C044C7424D781230054654F /* Silver Screen.app */,
-				7CE3613724E1ECBD006206D4 /* DataFetcher */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -292,26 +261,6 @@
 			productName = "silver-screen";
 			productReference = 7C044C7424D781230054654F /* Silver Screen.app */;
 			productType = "com.apple.product-type.application";
-		};
-		7CE3613624E1ECBD006206D4 /* DataFetcher */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7CE3613B24E1ECBD006206D4 /* Build configuration list for PBXNativeTarget "DataFetcher" */;
-			buildPhases = (
-				7CE3613324E1ECBD006206D4 /* Sources */,
-				7CE3613424E1ECBD006206D4 /* Frameworks */,
-				7CE3613524E1ECBD006206D4 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DataFetcher;
-			packageProductDependencies = (
-				7CE3613F24E1ED36006206D4 /* GRDB */,
-			);
-			productName = DataFetcher;
-			productReference = 7CE3613724E1ECBD006206D4 /* DataFetcher */;
-			productType = "com.apple.product-type.tool";
 		};
 		7CF8065124CC8E3100503C38 /* Silver Screen (iOS) */ = {
 			isa = PBXNativeTarget;
@@ -401,9 +350,6 @@
 					7C044C7324D781230054654F = {
 						CreatedOnToolsVersion = 12.0;
 					};
-					7CE3613624E1ECBD006206D4 = {
-						CreatedOnToolsVersion = 12.0;
-					};
 					7CF8065124CC8E3100503C38 = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -441,7 +387,6 @@
 				7C044C7324D781230054654F /* Silver Screen (tvOS) */,
 				7CF8066124CC8E3100503C38 /* Tests iOS */,
 				7CF8066C24CC8E3100503C38 /* Tests macOS */,
-				7CE3613624E1ECBD006206D4 /* DataFetcher */,
 			);
 		};
 /* End PBXProject section */
@@ -501,7 +446,6 @@
 				7C3691E3253E63E50067EF83 /* MovieDetails.swift in Sources */,
 				7C044C9F24D781E30054654F /* Silver_ScreenApp.swift in Sources */,
 				7C3690FE253B98530067EF83 /* MovieItem.swift in Sources */,
-				7CC00783254261D000973AA4 /* AVPlayerView.swift in Sources */,
 				7CDD2F6824E1FC9800E65AEA /* Models.swift in Sources */,
 				7C3690EA253A100B0067EF83 /* AboutPage.swift in Sources */,
 				7C3690E0253A0F710067EF83 /* MoviePlayer.swift in Sources */,
@@ -510,19 +454,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7CE3613324E1ECBD006206D4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7CDD2F6924E1FC9800E65AEA /* Models.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7CF8064E24CC8E3100503C38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CC00781254261D000973AA4 /* AVPlayerView.swift in Sources */,
 				7CC008082544853300973AA4 /* MovieRow.swift in Sources */,
 				7CC0077225425CC700973AA4 /* ContentView.swift in Sources */,
 				7C3691C1253E48250067EF83 /* MovieList.swift in Sources */,
@@ -547,7 +482,6 @@
 				7C3690DF253A0F710067EF83 /* MoviePlayer.swift in Sources */,
 				7CF8067524CC8E3100503C38 /* Silver_ScreenApp.swift in Sources */,
 				7C3691B2253E46870067EF83 /* LazyView.swift in Sources */,
-				7CC00782254261D000973AA4 /* AVPlayerView.swift in Sources */,
 				7CC008092544853300973AA4 /* MovieRow.swift in Sources */,
 				7C3690D52539FE640067EF83 /* MovieDetails.swift in Sources */,
 				7C3690F3253B97FE0067EF83 /* MovieList.swift in Sources */,
@@ -604,7 +538,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 			};
 			name = Debug;
 		};
@@ -626,30 +560,8 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		7CE3613C24E1ECBD006206D4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		7CE3613D24E1ECBD006206D4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -773,7 +685,7 @@
 				DEVELOPMENT_TEAM = QCM3Q3E382;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -795,7 +707,7 @@
 				DEVELOPMENT_TEAM = QCM3Q3E382;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -823,7 +735,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.Silver-Screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = macosx;
@@ -845,7 +757,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "studio.newts.Silver-Screen";
 				PRODUCT_NAME = "Silver Screen";
 				SDKROOT = macosx;
@@ -950,15 +862,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CE3613B24E1ECBD006206D4 /* Build configuration list for PBXNativeTarget "DataFetcher" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7CE3613C24E1ECBD006206D4 /* Debug */,
-				7CE3613D24E1ECBD006206D4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7CF8064924CC8E2E00503C38 /* Build configuration list for PBXProject "Silver Screen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1019,11 +922,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		7C044CA324D782000054654F /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
-		7CE3613F24E1ED36006206D4 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7CF8068B24CC914A00503C38 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
