@@ -22,9 +22,7 @@ struct MovieRow: View {
         
         ScrollView(.horizontal) {
             LazyHGrid(rows: rows, alignment: .top){
-                
                 ForEach(movies) { movie in
-                    
                     Button(action: {
                         self.selectedMovie = movie
                         print(selectedMovie)
@@ -53,3 +51,4 @@ struct MovieRow: View {
         }
     }
 }
+              
