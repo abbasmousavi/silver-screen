@@ -29,22 +29,22 @@ struct MovieList: View {
                     ForEach(1 ..< 8) { index in
                         
                         if (!viewModel.movies[index].isEmpty){
-                        VStack {
-                            Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
-                                .padding(.leading, 20).padding(.top, 40)
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack {
-                                    Spacer().frame(width: 20)
-                                    ForEach(viewModel.movies[index]) { movie in
-                                        
-                                        MovieItem(movie: movie, corner: true)
+                            VStack {
+                                Text("19\(index * 10)s Movies").font(.body).bold().frame(maxWidth:.infinity, alignment: .leading)
+                                    .padding(.leading, 20).padding(.top, 40)
+                                
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack {
+                                        Spacer().frame(width: 20)
+                                        ForEach(viewModel.movies[index]) { movie in
+                                            
+                                            MovieItem(movie: movie, corner: true)
+                                        }
+                                        Spacer().frame(width: 20)
                                     }
-                                    Spacer().frame(width: 20)
-                                }
-                            }.frame(height: Constants.imageHeight + Constants.textHeight + 5)
-                        }//.listRowInsets(EdgeInsets())
-                    }
+                                }.frame(height: Constants.imageHeight + Constants.textHeight + 5)
+                            }
+                        }
                     }
                 }
             }.navigationBarTitle(Text("All Movies"))
